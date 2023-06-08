@@ -21,12 +21,25 @@ crearTabla(caucasia, "tbl_caucasia")
 crearTabla(bello, "tbl_bello")
 crearTabla(belmira, "tbl_belmira")
 crearTabla(tablaArboles,"tbl_tablaArboles")
-crearTabla(caramanta,"tbl_caramanta")
+crearTabla(caramanta,"tbl_caramanta")   
 
 
 graficarPromedio(tablaArboles,'Ciudad','Arboles','promediArboles')
 
+graficarPromedio(yarumal,'Ciudad','Arboles','promediArbolesYarumal')
+
 graficar_torta(caramanta, [300, 800, 1300, 1800, 2300, 2800, 3200], 'Arboles', 'Hectareas', 'datosCaramanta')
+
+graficar_torta(caucasia, [300, 800, 1300, 1800, 2300, 2800, 3200], 'Arboles', 'Hectareas', 'datosCaucasia')
+
+graficar_torta(santafeMayorSiembra, [300, 800, 1300, 1800, 2300, 2800, 3200], 'Arboles', 'Hectareas', 'datosSantFeMayorSiembra')
+
+graficar_torta(belmira, [300, 800, 1300, 1800, 2300, 2800, 3200], 'Arboles', 'Hectareas', 'datosBelmira')
+
+graficar_torta(bello, [300, 800, 1300, 1800, 2300, 2800, 3200], 'Arboles', 'Hectareas', 'datosBello')
+
+# graficar_torta(yarumal, [300, 800, 1300, 1800, 2300, 2800, 3200], 'Arboles', 'Hectareas', 'datosYarumal')
+
 
 tablaArboles['Fecha'] = pd.to_datetime(tablaArboles['Fecha'])
 serie_tiempo = tablaArboles.set_index('Fecha')['Arboles']
@@ -38,4 +51,9 @@ grafica_lineal_serie_tiempo(serie_tiempo, 'Fecha', 'Arboles', 'Serie de Tiempo d
 ciudades = tablaArboles['Ciudad'].tolist()
 arboles = tablaArboles['Arboles'].tolist()
 nombre = 'barrastodaslaszonas'
+create_bar_chart(ciudades, arboles, nombre)
+
+ciudades = caucasia['Ciudad'].tolist()
+arboles = tablaArboles['Arboles'].tolist()
+nombre = 'barraCaucasia'
 create_bar_chart(ciudades, arboles, nombre)
